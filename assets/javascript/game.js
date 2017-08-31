@@ -11,7 +11,7 @@ $(document).ready(function () {
         "Tauriel": {
             name: "Tauriel",
             health: 100,
-            attack: 1,
+            attack:3,
             link: "assets/images/tauriel.jpg",
             counterAttack: 5
         },
@@ -131,6 +131,8 @@ $(document).ready(function () {
 
 
             if(defCharacter.health < 0){
+                showCharacter(defCharacter,".dead-pool")
+                $(".dead-pool").animate({ right: "-=200px" }, "normal");
                 killedCharacters.push(defCharacter.name);
                 console.log(killedCharacters);
                 var winresult = attCharacter.name + " defeted " + defCharacter.name+ ". You can choose to fight another enemy";
@@ -169,10 +171,13 @@ $(document).ready(function () {
                 if(attCharacter.health < 0){
 
                     RestartGame();
+                    $("#attButton").unbind("click");
                     $(".attack-result").empty();
                     $(".defend-result").empty();
-                    var looser = "Such a Looser";
-                    $(".defend-result").text(looser);
+                    var looser =$("<h1 class='looser'>").text("Such A Looser");
+                    $(".defend-result").append(looser);
+                    //var looser = "Such a Looser";
+                    //$(".defend-result").text(looser);
                 }
 
 

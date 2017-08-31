@@ -1,6 +1,7 @@
 
 h1{
     text-align: center;
+    font-size: 30px;
 }
 img {
     width: 150px;
@@ -43,10 +44,36 @@ img {
     border-style: solid;
     border-width: 3px;
 }
+
+.defend-result .looser{
+    animation-name: Looser;
+    color: yellow;
+    animation-duration: 10s;
+    animation-iteration-count: 10;
+    position: relative;
+}
+
+@keyframes Looser {
+    0%   {background-color:red;font-size: 20px; top:0px; }
+    25%  {background-color:yellow;font-size: 40px; bottom:100px;}
+    50%  {background-color:blue;font-size: 60px; bottom:200px; }
+    75%  {background-color:green;font-size: 40px; bottom:100px; }
+    100% {background-color:red;font-size: 20px; bottom:0px; }
+}
 body {
     font-family: "Share Tech Mono", Arial, Helvetica, sans-serif;
     background-image: url("../images/mordor.jpg");
     background-size: cover;
     color: #d21034;
     font-weight: bolder;
+}
+.dead-pool .character {
+    display: inline-block;
+    cursor: pointer;
+    color: green;
+    background-color: gray;
+    border-color: yellow;
+    border-style: solid;
+
+
 }
