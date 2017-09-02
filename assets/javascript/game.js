@@ -1,5 +1,10 @@
 $(document).ready(function () {
 
+    var audioElement = document.createElement("audio");
+    audioElement.setAttribute("src", "http://moviethemes.net/music/LOTR/Lord_Of_The_Rings__Main_Title_Theme.mp3");
+    audioElement.loop = true;
+    audioElement.play();
+
     var characters= {
         "Aragorn": {
             name: "Aragorn",
@@ -132,7 +137,6 @@ $(document).ready(function () {
 
             if(defCharacter.health < 0){
                 showCharacter(defCharacter,".dead-pool")
-                $(".dead-pool").animate({ right: "-=200px" }, "normal");
                 killedCharacters.push(defCharacter.name);
                 console.log(killedCharacters);
                 var winresult = attCharacter.name + " defeted " + defCharacter.name+ ". You can choose to fight another enemy";
@@ -144,10 +148,14 @@ $(document).ready(function () {
                 kills++;
 
                 if( kills >= 3){
+                    audioElement.setAttribute("src", "assets/music/champions.mp3");
+                    audioElement.play();
                     $(".attack-result").empty();
                     $(".defend-result").empty();
                     var victory = "You won, Amazing Job";
                     $(".defend-result").text(victory);
+                    var winner =$("<h1 class='winner'>").text("Such A Badass");
+                    $(".defend-result").append(winner);
                     RestartGame();
                 }
 
@@ -169,6 +177,8 @@ $(document).ready(function () {
                 console.log(attCharacter.health);
                 console.log(defCharacter.health);
                 if(attCharacter.health < 0){
+                    audioElement.setAttribute("src", "assets/music/loser.mp3");
+                    audioElement.play();
 
                     RestartGame();
                     $("#attButton").unbind("click");

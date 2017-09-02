@@ -45,20 +45,22 @@ img {
     border-width: 3px;
 }
 
-.defend-result .looser{
+ .looser, .winner{
     animation-name: Looser;
     color: yellow;
     animation-duration: 10s;
     animation-iteration-count: 10;
     position: relative;
+    font-size: 10px;
+    z-index: 1;
 }
 
 @keyframes Looser {
-    0%   {background-color:red;font-size: 20px; top:0px; }
-    25%  {background-color:yellow;font-size: 40px; bottom:100px;}
-    50%  {background-color:blue;font-size: 60px; bottom:200px; }
-    75%  {background-color:green;font-size: 40px; bottom:100px; }
-    100% {background-color:red;font-size: 20px; bottom:0px; }
+    0%   {color:red;font-size: 20px; bottom:0px; }
+    25%  {color:yellow;font-size: 40px; bottom:100px;}
+    50%  {color:blue;font-size: 60px; bottom:200px; }
+    75%  {color:green;font-size: 40px; bottom:100px; }
+    100% {color:red;font-size: 20px; bottom:0px; }
 }
 body {
     font-family: "Share Tech Mono", Arial, Helvetica, sans-serif;
@@ -74,6 +76,12 @@ body {
     background-color: gray;
     border-color: yellow;
     border-style: solid;
+}
 
+.dead{
 
+    position: absolute;
+    right:50px;
+    top:200px;
+    text-align: center;
 }
